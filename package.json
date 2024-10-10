@@ -1,6 +1,6 @@
 {
   "name": "comlink",
-  "version": "4.4.2",
+  "version": "1.0.0",
   "description": "Comlink makes WebWorkers enjoyable",
   "main": "dist/umd/comlink.js",
   "module": "dist/esm/comlink.mjs",
@@ -8,19 +8,19 @@
   "sideEffects": false,
   "scripts": {
     "prepack": "npm run build",
-    "build": "rollup -c",
+    "build": "rollup -c && npm run fmt",
     "test:unit": "karma start",
     "test:node": "mocha ./tests/node/main.mjs",
     "test:types": "tsc -p ./tests/tsconfig.json",
     "test:types:watch": "npm run test:types -- --watch",
-    "test": "npm run fmt_test && npm run build && npm run test:types && npm run test:unit && npm run test:node",
+    "test": "npm run fmt_test && npm run test:types && npm run test:unit && npm run test:node",
     "fmt": "prettier --write './*.{mjs,js,ts,md,json,html}' './{src,docs,tests}/{,**/}*.{mjs,js,ts,md,json,html}'",
     "fmt_test": "test $(prettier -l './*.{mjs,js,ts,md,json,html}' './{src,docs,tests}/{**/,}*.{mjs,js,ts,md,json,html}' | wc -l) -eq 0",
     "watchtest": "CHROME_ONLY=1 karma start --no-single-run"
   },
   "author": {
-    "name": "Surma",
-    "email": "surma@google.com"
+    "name": "Lichtblick",
+    "email": "lichtblick@bmwgroup.com"
   },
   "files": [
     "dist"
